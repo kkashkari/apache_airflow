@@ -10,7 +10,7 @@ A quick-start setup for running **Apache Airflow** using the official Docker ima
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
