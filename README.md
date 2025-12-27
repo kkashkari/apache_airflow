@@ -1,4 +1,4 @@
-Here is a README.md file formatted specifically for GitHub. It includes code blocks, badges, and clear headers to make the project easy to navigate and set up.Markdown# Apache Airflow in Docker (Python 3.12)
+Markdown# Apache Airflow in Docker (Python 3.12)
 
 ![Airflow Version](https://img.shields.io/badge/Airflow-Latest-blue)
 ![Python Version](https://img.shields.io/badge/Python-3.12-yellow)
@@ -6,7 +6,7 @@ Here is a README.md file formatted specifically for GitHub. It includes code blo
 
 A quick-start setup for running **Apache Airflow** using the official Docker images, customized to run on **Python 3.12** and accessible via **Port 80**.
 
-**CAUTION:** This setup is intended for local development, learning, and exploration. It does **not** provide the security guarantees required for production environments. For production, please refer to the [Official Airflow Helm Chart](https://airflow.apache.org/docs/helm-chart/stable/index.html).
+> **CAUTION:** This setup is intended for local development, learning, and exploration. It does **not** provide the security guarantees required for production environments. For production, please refer to the [Official Airflow Helm Chart](https://airflow.apache.org/docs/helm-chart/stable/index.html).
 
 ---
 
@@ -41,7 +41,7 @@ B. Update the Port Mapping (Port 80)Locate the airflow-apiserver service and upd
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 (Windows users can manually create an .env file containing AIRFLOW_UID=50000)5. Initialize the DatabaseRun the database migrations and create the default admin user:Bashdocker compose up airflow-init
 Wait for the message: airflow-init-1 exited with code 06. Start AirflowStart all services in detached mode:Bashdocker compose up -d
-Accessing the UIOnce the services are running, access the Airflow web interface at:URL: http://localhostUsername: airflowPassword: airflow🛠️ Common CommandsActionCommandCheck Container Statusdocker psStop & Remove Volumesdocker compose down --volumes --remove-orphansRun CLI Commanddocker compose run airflow-worker airflow infoView Logsdocker compose logs -f📂 Project StructureAfter initialization, your directory will look like this:Plaintextairflow-docker/
+Accessing the UIOnce the services are running, access the Airflow web interface at:URL: http://localhostUsername: airflowPassword: airflowCommon CommandsActionCommandCheck Container Statusdocker psStop & Remove Volumesdocker compose down --volumes --remove-orphansRun CLI Commanddocker compose run airflow-worker airflow infoView Logsdocker compose logs -fProject StructureAfter initialization, your directory will look like this:Plaintextairflow-docker/
 ├── dags/                # Place your DAG files here
 ├── logs/                # Task logs
 ├── plugins/             # Custom plugins
@@ -51,4 +51,4 @@ Accessing the UIOnce the services are running, access the Airflow web interface 
 TroubleshootingPermission Denied on airflow.cfg?If you are on Linux with SELinux enabled, append :z to the volume mounts in your docker-compose.yaml:YAMLvolumes:
   - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags:z
   - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs:z
-  # ... etc# apache_airflow
+  # ... etc
